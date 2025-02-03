@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Clear any preloaded shared libraries that might interfere with the execution
+unset LD_PRELOAD
+
+# Execute the Proot command to create a chroot-like environment for SEToolkit
+exec proot --link2symlink -0 -r $PREFIX/share/setoolkit/ -b /dev/ -b /sys/ -b /proc/ -b /sdcard -b /storage -b ${HOME} -b ${TMPDIR} -b ${PREFIX}/share -w $HOME /usr/bin/env HOME=$HOME PREFIX=/usr SHELL=/bin/sh TERM="$TERM" LANG=$LANG PATH=/bin:/usr/bin:/sbin:/usr/sbin LD_LIBRARY_PATH=/usr/lib /bin/sh -c "setoolkit"
