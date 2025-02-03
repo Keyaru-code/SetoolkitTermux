@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 main() {
-  printf "\n 
+  printf "\e[32m 
 ####################################
  SOCIAL-ENGENIERING-TOOLKIT
  IN TERMUX, BY : @ALIENKRISHN
 ####################################
    
-[*] installtion will take upto 700mb internet
-and 2gb storage...install it (yes/no)
-  "
+\e[0m[*] installtion will take upto \e[31m700mb\e[0m internet
+and 2gb storage...install it (yes/no): "
   read chs
   if [[ $chs == yes ]]; then
-    echo "Installing setoolkit in termux..."
+    echo -e "\e[36mInstalling setoolkit in termux...\e[0m]"
     mv setoolkit $PREFIX/bin
   else
     echo -e "Bye bye..."
@@ -23,14 +22,14 @@ and 2gb storage...install it (yes/no)
 checkarch() {
   arch=$(uname -m)
   if [[ $arch != aarch64 ]]; then
-    echo -e "Your device arch is not supported"
+    echo -e "\e[31mYour device arch is not supported\e[0m"
     sleep 2
     exit 1
   fi
 }
 
 insdeps() {
-	printf "\n[*] Updating apt cache..."
+	printf "\n\e[34m[*] Updating apt cache...\e[0m"
 	apt update -y &> /dev/null
 	echo "\n [*] Checking for all required tools..."
 
@@ -41,7 +40,7 @@ insdeps() {
 			echo "\nInstalling ${i}..."
 			apt install -y $i || 
                         {
-				printf "\nERROR: check your internet connection or apt"
+				printf "\n\e[31mERROR: check your internet connection or apt\e[0m"
 				printf "\n Exiting...\n"
 				exit 1
 			}
@@ -61,8 +60,13 @@ inset() {
     curl -LO https://github.com/Keyaru-code/SetoolkitTermux/releases/download/8.0.3/setoolkit.tar.xz
     tar -xvJf setoolkit.tar.xz
     rm -rf setoolkit.tar.xz
+    printf "
+    setoolkit installed...now you can execute it 
+    by typing '\e[32msetoolkit\e[0m' !!
+    "
   fi
 }
+clear
 main
 checkarch
 insdeps
