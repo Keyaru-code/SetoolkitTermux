@@ -12,6 +12,7 @@ and 2gb storage...install it (yes/no)
   read chs
   if [[ $chs == yes ]]; then
     echo "Installing setoolkit in termux..."
+    mv setoolkit $PREFIX/bin
   else
     echo -e "Bye bye..."
     sleep 2
@@ -50,12 +51,12 @@ insdeps() {
 }
 
 inset() {
-  install -Dm700 $PREFIX/bin setoolkit
   if [[ -d $PREFIX/share/setoolkit ]]; then
     printf "\nHein..setoolkit is already installed"
     exit 0
   else
     mkdir -p $PREFIX/share/setoolkit
+    cd $PREFIX/share/setoolkit
     echo -e "\e[32mDownloading setoolkit tar file please wait...\e[0m\n"
     curl -LO https://github.com/Keyaru-code/SetoolkitTermux/releases/download/8.0.3/setoolkit.tar.xz
     tar -xvJf setoolkit.tar.xz
