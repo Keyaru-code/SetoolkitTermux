@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 main() {
+  cat assets/logo
+  printf "\e\t\t[0;1msetoolkit in termux"
   printf "\e[32m 
-####################################
- SOCIAL-ENGENIERING-TOOLKIT
- IN TERMUX, BY : @ALIENKRISHN
-####################################
-   
-\e[0m[*] installtion will take upto \e[31m700mb\e[0m internet
-and 2gb storage...install it (yes/no): "
+-------------------------------------
+\e[0m[*] installtion will take upto
+\e[32m700mb\e[0m internet and \e[32m2gb\e[0m
+storage...install it (yes/no): "
   read chs
   if [[ $chs == yes ]]; then
-    echo -e "\e[36mInstalling setoolkit in termux...\e[0m]"
-    mv setoolkit $PREFIX/bin
+    echo -e "\e\v[36mInstalling setoolkit in termux...\e[0m]"
+    mv assets/setoolkit $PREFIX/bin
   else
-    echo -e "Bye bye..."
-    sleep 2
+    echo -e "\vBye bye..."
+    sleep 1
     exit 0
   fi
 }

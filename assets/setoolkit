@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Alienkrishn 
+# https://github.com/Anon4You
 
 # Clear any preloaded shared libraries that might interfere with the execution
 unset LD_PRELOAD
