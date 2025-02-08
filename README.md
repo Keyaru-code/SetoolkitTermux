@@ -30,11 +30,6 @@ To install SEToolkit using the provided installer script, follow these steps:
 
 1. Open your Termux application.
 2. Update your package list and upgrade existing packages by running:
-
-   ```bash
-   pkg update && pkg upgrade
-   ```
-
 3. Clone the repository:
 
    ```bash
